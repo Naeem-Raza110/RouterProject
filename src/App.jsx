@@ -10,6 +10,7 @@ import Dashboard from "./pages/dashboardPages/Dashboard";
 import Profile from "./pages/dashboardPages/Profile";
 import Settings from "./pages/dashboardPages/Settings";
 import Analytics from "./pages/dashboardPages/Analytics";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   return (
@@ -26,7 +27,10 @@ const App = () => {
           <Route path="profile" element={<Profile />} />
           <Route path="settings" element={<Settings />} />
           <Route path="analytics" element={<Analytics />} />
+          
         </Route>
+        <Route path="*" element={<NotFound />} />
+
       </Routes>
      
     </div>
