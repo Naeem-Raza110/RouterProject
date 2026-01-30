@@ -1,17 +1,21 @@
+import React from "react";
 import { Outlet } from "react-router-dom";
-import Sidebar from "../components/Dashboard/Sidebar";
+import Sidebar from "../components/dashboard/Sidebar";
 
 const DashboardLayout = () => {
   return (
     <div className="flex min-h-screen">
-      {/* Sidebar 25% */}
-      <div className="w-1/4 bg-[#010205]">
+      {/* Sidebar: fixed width, full height */}
+      <div className="w-80 min-h-screen">
         <Sidebar />
       </div>
 
-      {/* Main Content 75% */}
-      <div className="w-3/4 p-6 bg-gray-100">
-        <Outlet />
+      {/* Grid overlay */}
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] pointer-events-none"></div>
+
+      {/* Main content */}
+      <div className="relative z-10 flex-1 overflow-auto">
+        <Outlet />\
       </div>
     </div>
   );

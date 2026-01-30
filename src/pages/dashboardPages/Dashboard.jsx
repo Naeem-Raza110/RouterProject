@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   return (
-    <div className="min-h-screen p-6 bg-gray-100">
+    <div className="p-6 bg-gray-100">
 
       {/* Header */}
       <div className="bg-white rounded-xl shadow-md p-6 flex items-center justify-between">
