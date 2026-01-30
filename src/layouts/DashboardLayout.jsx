@@ -15,7 +15,7 @@ const DashboardLayout = () => {
 
       {/* Main content */}
       <div className="relative z-10 flex-1 overflow-auto">
-        <Outlet />\
+        <Outlet />
       </div>
     </div>
   );
