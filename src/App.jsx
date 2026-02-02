@@ -14,25 +14,25 @@ import NotFound from "./pages/NotFound";
 
 const App = () => {
   return (
-   
-      <Routes>
-        <Route element={<MainLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/features" element={<Features />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/auth" element={<Auth />} />
-        </Route> 
-         <Route path="dashboard" element={<DashboardLayout />}>
-          <Route index element={<Dashboard />} />
-          <Route path="profile" element={<Profile />} />
-          <Route path="settings" element={<Settings />} />
-          <Route path="analytics" element={<Analytics />} />
-          
-        </Route>
-        <Route path="*" element={<NotFound />} />
 
-      </Routes>
-     
+    <Routes>
+      <Route element={<MainLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/features" element={<Features />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/auth" element={<Auth />} />
+      </Route>
+      <Route path="dashboard" element={<DashboardLayout />}>
+        <Route index element={<Dashboard />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="settings" element={<Settings />} />
+        <Route path="analytics" element={<Analytics />} />
+
+      </Route>
+      <Route path="*" element={<NotFound />} />
+
+    </Routes>
+
 
   );
 };
