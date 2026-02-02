@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router";
-import Button from "../../components/Ui/Button";
 import HomeSection from "./HomeSections";
 const Home = () => {
   return (
