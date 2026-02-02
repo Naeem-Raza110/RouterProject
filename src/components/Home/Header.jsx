@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Container from "../../pages/HomePages/Container";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
+
     <header className="fixed top-0 left-0 w-full bg-black/40 backdrop-blur z-50">
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+     <Container>
+      <div className="  flex items-center justify-between py-4">
         <Link to="/">
           <h1 className="text-2xl font-bold text-white drop-shadow-md">MyBrand</h1>
         </Link>
@@ -23,7 +26,7 @@ const Header = () => {
             Contact
           </Link>
           <Link to="/auth" className="text-white hover:text-blue-400 transition drop-shadow-md">
-            Sign In / Sign Up
+            Sign In 
           </Link>
         </nav>
 
@@ -73,6 +76,7 @@ const Header = () => {
           </Link>
         </nav>
       )}
+      </Container>
     </header>
   );
 };

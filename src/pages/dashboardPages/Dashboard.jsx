@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom";
-
+import Button from "../../components/Ui/Button";
 const Dashboard = () => {
   return (
-    <div className="p-6 bg-gray-100">
-
+    <div className="p-6 min-h-screen bg-gray-100">
       {/* Header */}
       <div className="bg-white rounded-xl shadow-md p-6 flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-800">Dashboard</h1>
-        <Link
-          to="/dashboard/users"
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition"
-        >
-          Go to Users
+        <h1 className="text-2xl font-bold text-gray-800 ">
+          Admin <span className="text-blue-600">Panel</span>
+        </h1>
+        <Link to="/dashboard/users">
+          <Button
+            title={"Go to Users"}
+            className=" px-4 py-1 "
+          />
         </Link>
       </div>
 
@@ -33,7 +34,9 @@ const Dashboard = () => {
 
       {/* Recent Activities */}
       <div className="mt-8">
-        <h2 className="text-xl font-bold text-gray-800 mb-4">Recent Activities</h2>
+        <h2 className="text-xl font-bold text-gray-800 mb-4">
+          Recent Activities
+        </h2>
         <div className="bg-white rounded-xl shadow p-6">
           <ul className="space-y-3">
             <li className="flex justify-between text-gray-700">
@@ -58,19 +61,19 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Link
             to="/dashboard/profile"
-            className="bg-white p-5 rounded-xl shadow hover:shadow-md transition text-center text-gray-800 font-semibold"
+            className="bg-white p-5 rounded-xl shadow border border-transparent hover:border-blue-400 hover:shadow-md transition text-center text-gray-800 font-semibold"
           >
             Profile
           </Link>
           <Link
             to="/dashboard/settings"
-            className="bg-white p-5 rounded-xl shadow hover:shadow-md transition text-center text-gray-800 font-semibold"
+            className="bg-white p-5 rounded-xl shadow border border-transparent hover:border-blue-400 hover:shadow-md transition text-center text-gray-800 font-semibold"
           >
             Settings
           </Link>
           <Link
             to="/dashboard/analytics"
-            className="bg-white p-5 rounded-xl shadow hover:shadow-md transition text-center text-gray-800 font-semibold"
+            className="bg-white p-5 rounded-xl shadow border border-transparent hover:border-blue-400 hover:shadow-md transition text-center text-gray-800 font-semibold"
           >
             Analytics
           </Link>

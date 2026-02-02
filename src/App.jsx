@@ -8,9 +8,11 @@ import Auth from "./pages/Auth/Auth";
 import DashboardLayout from "./layouts/DashboardLayout";
 import Dashboard from "./pages/DashboardPages/Dashboard";
 import Profile from "./pages/DashboardPages/Profile";
+import Users from "./pages/DashboardPages/Users";
 import Settings from "./pages/DashboardPages/Settings";
 import Analytics from "./pages/DashboardPages/Analytics";
 import NotFound from "./pages/NotFound";
+import UserDetails from "./pages/DashboardPages/UserDetails";
 
 const App = () => {
   return (
@@ -25,6 +27,9 @@ const App = () => {
       <Route path="dashboard" element={<DashboardLayout />}>
         <Route index element={<Dashboard />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="users" element={<Users />} />
+          <Route path="users/:id" element={<UserDetails />} />
+
         <Route path="settings" element={<Settings />} />
         <Route path="analytics" element={<Analytics />} />
 

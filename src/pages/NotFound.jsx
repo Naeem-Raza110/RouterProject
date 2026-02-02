@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Header from "../components/Home/Header";
 
 const NotFound = () => {
   return (
     <div className="min-h-screen bg-[#010205] text-white relative flex items-center justify-center px-6">
-
+<Header />
       {/* Side lighting */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute left-0 top-0 h-full w-40 bg-white/5 blur-3xl"></div>
