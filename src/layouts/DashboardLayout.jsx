@@ -10,9 +10,6 @@ const DashboardLayout = () => {
         <Sidebar />
       </div>
 
-      {/* Main overlay background */}
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] pointer-events-none"></div>
-
       {/* Main content */}
       <div className="w-[75%] z-10 flex-1 overflow-auto ">
         <Outlet />
