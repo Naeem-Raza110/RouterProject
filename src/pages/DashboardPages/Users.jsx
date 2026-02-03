@@ -17,7 +17,7 @@ const Users = () => {
   }, []);
 
   const filtered = users.filter((u) =>
-    u.name.toLowerCase().includes(search.toLowerCase())
+    u.name.toLowerCase().includes(search.toLowerCase()),
   );
 
   const visibleUsers = filtered.slice(0, visibleCount);
@@ -31,15 +31,11 @@ const Users = () => {
 
   return (
     <div className="p-6  mx-auto min-h-screen bg-gray-100">
-
-      {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
-        {/* Heading */}
         <h2 className="text-3xl font-bold text-gray-900 tracking-wide">
           Users
         </h2>
 
-        {/* Search */}
         <input
           type="text"
           placeholder="Search..."
@@ -50,7 +46,6 @@ const Users = () => {
         />
       </div>
 
-      {/* Users Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {visibleUsers.map((user) => (
           <Link
@@ -59,10 +54,11 @@ const Users = () => {
             className="bg-white p-5 rounded-2xl border border-gray-200
             hover:border-blue-400 hover:shadow-lg transition-all group flex flex-col items-center"
           >
-            {/* Avatar */}
-            <div className="w-16 h-16 rounded-full bg-gray-200 text-gray-700 
+            <div
+              className="w-16 h-16 rounded-full bg-gray-200 text-gray-700 
               flex items-center justify-center text-2xl font-bold mb-4
-              group-hover:bg-blue-400 group-hover:text-white transition-colors shadow-sm">
+              group-hover:bg-blue-400 group-hover:text-white transition-colors shadow-sm"
+            >
               {user.name.charAt(0)}
             </div>
 
@@ -75,8 +71,10 @@ const Users = () => {
             </p>
 
             {/* Hover overlay */}
-            <div className="mt-3 text-xs font-semibold text-blue-400 
-              text-center opacity-0 group-hover:opacity-100 transition-opacity">
+            <div
+              className="mt-3 text-xs font-semibold text-blue-400 
+              text-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
               View Profile
             </div>
           </Link>
@@ -91,7 +89,6 @@ const Users = () => {
             title={" See More Users"}
             className={"px-6 py-3 "}
           />
-           
         </div>
       )}
     </div>
