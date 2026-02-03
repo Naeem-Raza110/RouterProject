@@ -1,4 +1,3 @@
-         
 # React Landing Page + Admin Dashboard
 
 A simple React project with landing pages, authentication, and a dashboard layout using **React Router** and **Tailwind CSS**.
