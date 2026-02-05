@@ -77,7 +77,7 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#010205] text-white relative px-6 flex flex-col">
+    <div className="min-h-screen bg-[#010205] py-8 text-white  relative px-6 flex flex-col">
       <div className="relative z-10 flex-grow flex items-center justify-center pt-24">
 
         {/* SIGN IN FORM */}
