@@ -1,16 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Ui/Button";
+import { UserContext } from "../../contact/UserContext";
+
 const Auth = () => {
   const [isSignIn, setIsSignIn] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [role, setRole] = useState("User"); // ADDED
   const [error, setError] = useState("");
+
+  const { setUser, setLoggedIn } = useContext(UserContext); // ADDED
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
+
     if (email === "admin@gmail.com" && password === "admin123") {
+      setUser({
+        name: "Admin",
+        email: "admin@gmail.com",
+        role: "Administrator",
+      });
+
+      setLoggedIn(true);
       setError("");
       navigate("/dashboard");
     } else {
@@ -18,9 +32,18 @@ const Auth = () => {
     }
   };
 
+  const handleSignUp = (e) => {
+    e.preventDefault();
+
+    setUser({ name, email, role }); // ADDED
+    setLoggedIn(true);
+    navigate("/dashboard");
+  };
+
   return (
     <div className="min-h-screen bg-[#010205] text-white relative px-6 flex flex-col">
       <div className="relative z-10 flex-grow flex items-center justify-center pt-24">
+
         {/* Sign In Form */}
         {isSignIn ? (
           <div className="bg-white/5 backdrop-blur-xl p-8 rounded-xl border border-white/10 shadow-xl w-full max-w-md">
@@ -39,6 +62,7 @@ const Auth = () => {
                   className="w-full px-4 py-3 bg-gray-900/50 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
+
               <div>
                 <label className="block mb-2">Password</label>
                 <input
@@ -49,7 +73,8 @@ const Auth = () => {
                   className="w-full px-4 py-3 bg-gray-900/50 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
-              <Button title={"Sign In"} className="w-full py-2 " />
+
+              <Button title={"Sign In"} className="w-full py-2" />
             </form>
 
             <p className="text-center text-gray-400 mt-4">
@@ -63,36 +88,60 @@ const Auth = () => {
             </p>
           </div>
         ) : (
+
           /* Sign Up Form */
           <div className="bg-white/5 backdrop-blur-xl p-8 rounded-xl border border-white/10 shadow-xl w-full max-w-md">
             <h1 className="text-3xl font-bold mb-6 text-center">Sign Up</h1>
 
-            <form className="space-y-6">
+            <form onSubmit={handleSignUp} className="space-y-6">
               <div>
                 <label className="block mb-2">Name</label>
                 <input
                   type="text"
                   placeholder="Enter your name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   className="w-full px-4 py-3 bg-gray-900/50 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
+
               <div>
                 <label className="block mb-2">Email</label>
                 <input
                   type="email"
                   placeholder="example@gmail.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="w-full px-4 py-3 bg-gray-900/50 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
+
               <div>
                 <label className="block mb-2">Password</label>
                 <input
                   type="password"
                   placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="w-full px-4 py-3 bg-gray-900/50 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
-              <Button title={"Sign Up"} className="w-full py-2  " />
+
+              {/* ROLE SELECT - ADDED WITHOUT CHANGING STYLE */}
+              <div>
+                <label className="block mb-2">Role</label>
+                <select
+                  value={role}
+                  onChange={(e) => setRole(e.target.value)}
+                  className="w-full px-4 py-3 bg-gray-900/50 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option className="bg-[#0e0f12] ">User</option>
+                  <option className="bg-[#0e0f12]">Editor</option>
+                  <option className="bg-[#0e0f12]">Administrator</option>
+                </select>
+              </div>
+
+              <Button title={"Sign Up"} className="w-full py-2" />
             </form>
 
             <p className="text-center text-gray-400 mt-4">
@@ -106,6 +155,7 @@ const Auth = () => {
             </p>
           </div>
         )}
+
       </div>
     </div>
   );

@@ -13,10 +13,11 @@ import Settings from "./pages/DashboardPages/Settings";
 import Analytics from "./pages/DashboardPages/Analytics";
 import NotFound from "./pages/NotFound";
 import UserDetails from "./pages/DashboardPages/UserDetails";
+import UserProvider from "./contact/UserProvider";
 
 const App = () => {
   return (
-
+<UserProvider>
     <Routes>
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
@@ -38,7 +39,7 @@ const App = () => {
 
     </Routes>
 
-
+</UserProvider>
   );
 };
 
