@@ -4,8 +4,7 @@ import Button from "../../components/Ui/Button";
 import { UserContext } from "../../contact/UserContext";
 
 const Auth = () => {
-  const [isSignIn, setIsSignIn] = useState(true);
-
+  const [isSignIn, setIsSignIn] = useState(true)
   // LOGIN STATE
   const [loginData, setLoginData] = useState({ email: "", password: "" });
   const [loginErrors, setLoginErrors] = useState({ email: "", password: "" });
@@ -17,7 +16,12 @@ const Auth = () => {
     password: "",
     role: "Select Role",
   });
-  const [errors, setErrors] = useState({ name: "", email: "", password: "", role: "" });
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    password: "",
+    role: ""
+  });
 
   const { setUser, setLoggedIn } = useContext(UserContext);
   const navigate = useNavigate();
