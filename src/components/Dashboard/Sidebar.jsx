@@ -1,11 +1,14 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "../../contact/UserContext";
+import Button from "../Ui/Button";
 
 const Sidebar = () => {
   const location = useLocation();
   const { user, setUser } = useContext(UserContext);
   const [loading, setLoading] = useState(true);
+
+  const navigate = useNavigate()
 
   // --- LOCAL STORAGE SYNC (Taake data gayab na ho) ---
   useEffect(() => {
@@ -89,17 +92,17 @@ const Sidebar = () => {
           </button>
         </Link>
         
-        <button
-          className="w-full cursor-pointer"
+        <Button
+          className="w-full py- cursor-pointer"
+          title="  Secure Logout"
+          isCorrect={false}
           onClick={() => {
             localStorage.removeItem("user");
-            window.location.href = "/auth";
+            navigate("/"); // Logout ke baad home page par le jao
+            
           }}
         >
-          <div className="w-full py-2 text-[11px] font-black uppercase tracking-widest text-red-400/80 hover:text-red-400 border border-red-500/10 hover:border-red-500/30 rounded-lg transition-all duration-300 bg-red-500/5 hover:bg-red-500/10 text-center">
-            Secure Logout
-          </div>
-        </button>
+        </Button>
       </div>
 
       <style>{`
