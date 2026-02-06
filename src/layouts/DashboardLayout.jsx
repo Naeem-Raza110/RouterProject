@@ -1,10 +1,15 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, Navigate} from "react-router-dom";
 import Sidebar from "../components/Dashboard/Sidebar";
 
 const DashboardLayout = () => {
+  const storedUser = localStorage.getItem("user");
+  if (!storedUser) {
+    return <Navigate to="/auth" />; 
+  }
+
   return (
-    <div className="flex min-h-screen">
+    <div className="flex ">
       {/* Sidebar: fixed width with max-width and responsive */}
       <div className="w-[25%] min-w-[200px] max-w-[300px] bg-[#0f1625]">
         <Sidebar />

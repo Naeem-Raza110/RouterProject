@@ -1,16 +1,18 @@
-import React from 'react'
+import React from "react";
 
 function Button({ title = "Button", className, onClick, isCorrect = true }) {
   return (
     <button
-      className={`cursor-pointer text-white rounded-lg text-lg transition ${isCorrect ? "bg-blue-600 hover:bg-blue-700" : "bg-red-600 hover:bg-red-700"
-        } ${className}`}
+      className={`cursor-pointer text-white text-lg rounded-xl font-bold transition ${
+        isCorrect
+          ? "bg-indigo-600 text-white  hover:bg-indigo-800 transition "
+          : "bg-red-600 hover:bg-red-700"
+      } ${className}`}
       onClick={onClick}
     >
       {title}
     </button>
-
-  )
+  );
 }
 
 export default Button;

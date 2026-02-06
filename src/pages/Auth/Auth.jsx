@@ -55,26 +55,31 @@ const Auth = () => {
 
   // SIGNUP HANDLER
   const handleSignUp = (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    let newErrors = { name: "", email: "", password: "", role: "" };
-    let hasError = false;
+  let newErrors = { name: "", email: "", password: "", role: "" };
+  let hasError = false;
 
-    if (!formData.name) { newErrors.name = "Please enter your name."; hasError = true; }
-    if (!formData.email) { newErrors.email = "Please enter your email."; hasError = true; }
-    else if (!formData.email.includes("@")) { newErrors.email = "Please enter a valid email."; hasError = true; }
-    if (!formData.password) { newErrors.password = "Please enter your password."; hasError = true; }
-    else if (formData.password.length < 6) { newErrors.password = "Password must be at least 6 characters."; hasError = true; }
-    if (!formData.role || formData.role === "Select Role") { newErrors.role = "Please select a role."; hasError = true; }
+  if (!formData.name) { newErrors.name = "Please enter your name."; hasError = true; }
+  if (!formData.email) { newErrors.email = "Please enter your email."; hasError = true; }
+  else if (!formData.email.includes("@")) { newErrors.email = "Please enter a valid email."; hasError = true; }
+  if (!formData.password) { newErrors.password = "Please enter your password."; hasError = true; }
+  else if (formData.password.length < 6) { newErrors.password = "Password must be at least 6 characters."; hasError = true; }
+  if (!formData.role || formData.role === "Select Role") { newErrors.role = "Please select a role."; hasError = true; }
 
-    setErrors(newErrors);
+  setErrors(newErrors);
 
-    if (!hasError) {
-      setUser(formData);
-      setLoggedIn(true);
-      navigate("/dashboard");
-    }
-  };
+  if (!hasError) {
+    setUser(formData);
+    setLoggedIn(true);
+
+    // Save to localStorage
+    localStorage.setItem("user", JSON.stringify(formData));
+
+    // Navigate to dashboard
+    navigate("/dashboard");
+  }
+};
 
   return (
     <div className="min-h-screen bg-[#010205] py-8 text-white  relative px-6 flex flex-col">
@@ -174,9 +179,9 @@ const Auth = () => {
                   className="w-full px-4 py-3 bg-gray-900/50 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option className="bg-[#0e0f12]">Select Role</option>
+                  <option className="bg-[#0e0f12]">Admin</option>
                   <option className="bg-[#0e0f12]">User</option>
-                  <option className="bg-[#0e0f12]">Editor</option>
-                  <option className="bg-[#0e0f12]">Administrator</option>
+                  <option className="bg-[#0e0f12]">guest</option>
                 </select>
                 {errors.role && <p className="text-red-500 mt-1">{errors.role}</p>}
               </div>
