@@ -93,15 +93,16 @@ const Sidebar = () => {
         </Link>
         
         <Button
-          className="w-full py- cursor-pointer"
-          title="  Secure Logout"
+          className="w-full py-2 "
+          title="Secure Logout"
           isCorrect={false}
           onClick={() => {
             localStorage.removeItem("user");
-            navigate("/"); // Logout ke baad home page par le jao
+            navigate("/"); 
             
           }}
         >
+        
         </Button>
       </div>
 
